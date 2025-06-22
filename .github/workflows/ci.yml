@@ -42,7 +42,14 @@ jobs:
               run: yarn build
 
             - name: Run Misti
-              run: yarn misti --min-severity medium ./tact.config.json
+              run: yarn misti --min-severity medium -o sarif -O /tmp/misti ./tact.config.json
+
+            - name: Check SARIF output
+              run: cat /tmp/misti/warnings.sarif
+
+            - uses: github/codeql-action/upload-sarif@v2
+              with:
+                sarif_file: /tmp/misti/warnings.sarif
 
             - name: Run tests
               run: yarn test

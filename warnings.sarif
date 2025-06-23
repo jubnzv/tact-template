@@ -58,7 +58,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "contract.tact"
+                  "uri": "sources/contract.tact"
                 },
                 "region": {
                   "startLine": 36,

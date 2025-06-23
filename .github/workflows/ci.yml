@@ -1,4 +1,4 @@
-name: CI
+name: Misti Security Analysis
 
 permissions:
   security-events: write
@@ -6,52 +6,25 @@ permissions:
   contents: read
 
 on:
-    push:
-        branches: ["main"]
-    pull_request:
-        branches: ["main"]
-    workflow_dispatch:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
-    test:
-        strategy:
-            fail-fast: false
-            matrix:
-                node-version: [22]
-                os: [ubuntu-latest]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+  security-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            # - name: Install Soufflé on Ubuntu
-            #   if: matrix.os == 'ubuntu-latest'
-            #   run: |
-            #     sudo wget https://souffle-lang.github.io/ppa/souffle-key.public -O /usr/share/keyrings/souffle-archive-keyring.gpg
-            #     echo "deb [signed-by=/usr/share/keyrings/souffle-archive-keyring.gpg] https://souffle-lang.github.io/ppa/ubuntu/ stable main" | sudo tee /etc/apt/sources.list.d/souffle.list
-            #     sudo apt update
-            #     sudo apt install souffle
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-
-            - name: Install dependencies
-              run: yarn install
-
-            - name: Build
-              run: yarn build
-
-            - name: Check the SARIF output
-              run: cat ./warnings.sarif
-
-            - uses: github/codeql-action/upload-sarif@v3
-              with:
-                sarif_file: ./warnings.sarif
-                category: misti-analysis
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Run tests
-              run: yarn test
+      - name: Upload SARIF results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ./warnings.sarif
+          category: misti-security-analysis

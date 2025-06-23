@@ -46,7 +46,7 @@ jobs:
             - name: Check the SARIF output
               run: cat ./warnings.sarif
 
-            - uses: github/codeql-action/upload-sarif@v2
+            - uses: github/codeql-action/upload-sarif@v3
               with:
                 sarif_file: ./warnings.sarif
               env:

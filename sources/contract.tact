@@ -33,6 +33,7 @@ contract SampleTactContract(
     }
 
     fun add(v: Int) {
+        let unused: Int = 342;
         self.requireOwner();
         self.counter += v;
     }

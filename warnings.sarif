@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Misti",
+          "version": "0.8.3-38b1576",
+          "informationUri": "https://nowarp.io/tools/misti",
+          "rules": [
+            {
+              "id": "NeverAccessedVariables",
+              "name": "NeverAccessedVariables",
+              "shortDescription": {
+                "text": "Variable unused is never accessed"
+              },
+              "helpUri": "https://nowarp.io/tools/misti/docs/detectors/NeverAccessedVariables",
+              "properties": {
+                "category": "Security",
+                "severity": "MEDIUM"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "NeverAccessedVariables",
+          "level": "warning",
+          "message": {
+            "text": "Variable unused is never accessed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/jubnzv/Dev/tact-template/sources/contract.tact"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 9
+                }
+              }
+            }
+          ],
+          "properties": {
+            "category": "Security",
+            "severity": "MEDIUM",
+            "detectorId": "NeverAccessedVariables",
+            "docURL": "https://nowarp.io/tools/misti/docs/detectors/NeverAccessedVariables",
+            "suggestion": "Consider removing the variable"
+          }
+        }
+      ]
+    }
+  ]
+}

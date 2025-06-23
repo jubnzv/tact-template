@@ -9,7 +9,7 @@
         "read": "ts-node ./sources/contract.read.ts"
     },
     "dependencies": {
-        "@nowarp/misti": "0.8.0",
+        "@nowarp/misti": "0.8.3",
         "@tact-lang/compiler": "^1.6.13",
         "@tact-lang/deployer": "^0.2.0",
         "@tact-lang/ton-abi": "^0.0.3",

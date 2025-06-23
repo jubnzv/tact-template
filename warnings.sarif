@@ -24,6 +24,26 @@
           ]
         }
       },
+      "invocations": [
+        {
+          "commandLine": "/home/jubnzv/Dev/misti/node_modules/.bin/ts-node /home/jubnzv/Dev/misti/src/main.ts --min-severity medium -o sarif -O /tmp/misti /home/jubnzv/Dev/tact-template/tact.config.json",
+          "arguments": [
+            "--min-severity",
+            "medium",
+            "-o",
+            "sarif",
+            "-O",
+            "/tmp/misti",
+            "/home/jubnzv/Dev/tact-template/tact.config.json"
+          ],
+          "startTimeUtc": "2025-06-23T08:38:09.212Z",
+          "exitCode": 1,
+          "executionSuccessful": true,
+          "workingDirectory": {
+            "uri": "file:///home/jubnzv/Dev/misti"
+          }
+        }
+      ],
       "results": [
         {
           "ruleId": "NeverAccessedVariables",

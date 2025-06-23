@@ -39,7 +39,7 @@
             "/tmp/misti",
             "/home/jubnzv/Dev/tact-template/tact.config.json"
           ],
-          "startTimeUtc": "2025-06-23T08:52:29.959Z",
+          "startTimeUtc": "2025-06-23T12:29:09.899Z",
           "exitCode": 1,
           "executionSuccessful": true,
           "workingDirectory": {
@@ -58,7 +58,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "file:///home/jubnzv/Dev/tact-template/sources/contract.tact"
+                  "uri": "contract.tact"
                 },
                 "region": {
                   "startLine": 36,

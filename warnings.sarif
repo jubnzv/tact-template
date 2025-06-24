@@ -20,6 +20,18 @@
                 "category": "Security",
                 "severity": "MEDIUM"
               }
+            },
+            {
+              "id": "UnusedMethodArgument",
+              "name": "UnusedMethodArgument",
+              "shortDescription": {
+                "text": "Method add always receives the same value 1 for argument #1"
+              },
+              "helpUri": "https://nowarp.io/tools/misti/docs/detectors/UnusedMethodArgument",
+              "properties": {
+                "category": "Optimization",
+                "severity": "LOW"
+              }
             }
           ]
         }
@@ -29,17 +41,15 @@
       },
       "invocations": [
         {
-          "commandLine": "/home/jubnzv/Dev/misti/node_modules/.bin/ts-node /home/jubnzv/Dev/misti/src/main.ts --min-severity medium -o sarif -O /tmp/misti /home/jubnzv/Dev/tact-template/tact.config.json",
+          "commandLine": "/home/jubnzv/Dev/misti/node_modules/.bin/ts-node /home/jubnzv/Dev/misti/src/main.ts -o sarif -O /tmp/misti /home/jubnzv/Dev/tact-template/sources/contract.tact",
           "arguments": [
-            "--min-severity",
-            "medium",
             "-o",
             "sarif",
             "-O",
             "/tmp/misti",
-            "/home/jubnzv/Dev/tact-template/tact.config.json"
+            "/home/jubnzv/Dev/tact-template/sources/contract.tact"
           ],
-          "startTimeUtc": "2025-06-23T12:29:09.899Z",
+          "startTimeUtc": "2025-06-24T12:06:54.843Z",
           "exitCode": 1,
           "executionSuccessful": true,
           "workingDirectory": {
@@ -50,7 +60,7 @@
       "results": [
         {
           "ruleId": "NeverAccessedVariables",
-          "level": "error",
+          "level": "warning",
           "message": {
             "text": "Variable unused is never accessed"
           },
@@ -73,6 +83,33 @@
             "detectorId": "NeverAccessedVariables",
             "docURL": "https://nowarp.io/tools/misti/docs/detectors/NeverAccessedVariables",
             "suggestion": "Consider removing the variable"
+          }
+        },
+        {
+          "ruleId": "UnusedMethodArgument",
+          "level": "warning",
+          "message": {
+            "text": "Method add always receives the same value 1 for argument #1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "sources/contract.tact"
+                },
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 5
+                }
+              }
+            }
+          ],
+          "properties": {
+            "category": "Optimization",
+            "severity": "LOW",
+            "detectorId": "UnusedMethodArgument",
+            "docURL": "https://nowarp.io/tools/misti/docs/detectors/UnusedMethodArgument",
+            "suggestion": "Consider removing this parameter and using 1 directly inside the method."
           }
         }
       ]

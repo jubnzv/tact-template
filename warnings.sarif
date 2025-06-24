@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "name": "Misti",
-          "version": "0.8.3-38b1576",
+          "version": "0.8.3-cc1c2fb",
           "informationUri": "https://nowarp.io/tools/misti",
           "rules": [
             {
@@ -41,15 +41,15 @@
       },
       "invocations": [
         {
-          "commandLine": "/home/jubnzv/Dev/misti/node_modules/.bin/ts-node /home/jubnzv/Dev/misti/src/main.ts -o sarif -O /tmp/misti /home/jubnzv/Dev/tact-template/sources/contract.tact",
+          "commandLine": "/home/jubnzv/Dev/misti/node_modules/.bin/ts-node /home/jubnzv/Dev/misti/src/main.ts -o sarif -O /tmp/misti /home/jubnzv/Dev/tact-template/tact.config.json",
           "arguments": [
             "-o",
             "sarif",
             "-O",
             "/tmp/misti",
-            "/home/jubnzv/Dev/tact-template/sources/contract.tact"
+            "/home/jubnzv/Dev/tact-template/tact.config.json"
           ],
-          "startTimeUtc": "2025-06-24T12:06:54.843Z",
+          "startTimeUtc": "2025-06-24T12:20:45.033Z",
           "exitCode": 1,
           "executionSuccessful": true,
           "workingDirectory": {
